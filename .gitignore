@@ -1,0 +1,4 @@
+.evv
+__pycache__/
+*.pyc
+*.log
