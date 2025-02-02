@@ -22,7 +22,6 @@ class Status(Base):
     def __repr__(self):
         return f"Status(id={self.id}, name='{self.name}')"
 
-
 class User(Base):
     """
     Модель пользователя бота.
