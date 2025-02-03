@@ -163,7 +163,8 @@ class VK:
         regular_keyboard.add_button("В избранное", color=VkKeyboardColor.POSITIVE)
         regular_keyboard.add_button("В ЧС", color=VkKeyboardColor.NEGATIVE)
         regular_keyboard.add_line()
-        regular_keyboard.add_button("Моё избранное", color=VkKeyboardColor.SECONDARY)
+        regular_keyboard.add_button("Моё избранное", color=VkKeyboardColor.PRIMARY)
+        regular_keyboard.add_button("Выход", color=VkKeyboardColor.SECONDARY)
 
         back_keyboard = VkKeyboard()
         back_keyboard.add_button("Дальше", color=VkKeyboardColor.POSITIVE)
