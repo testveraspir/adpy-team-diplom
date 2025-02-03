@@ -210,6 +210,15 @@ class VTinderBot:
                                             "Поиск остановлен",
                                             keyboard=welcome_keyboard.get_keyboard()
                                         )
+
+                                    else:
+                                        self.user_dict[self_id] = 1
+                                        self.vk.send_message(
+                                            self.vk.vk_group_session,
+                                            self_id,
+                                            "Некорректная команда! Попробуйте снова.",
+                                            keyboard=welcome_keyboard.get_keyboard()
+                                        )
                                         return
 
                     except Exception as e:
