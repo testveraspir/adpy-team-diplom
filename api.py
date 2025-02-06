@@ -5,16 +5,21 @@ import datetime
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+dotenv_path = 'config_example.env'
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+GROUP_TOKEN = os.getenv('GROUP_TOKEN')
+USER_TOKEN = os.getenv('USER_TOKEN')
+GROUP_ID = os.getenv('GROUP_ID')
 
 
 class VK:
     def __init__(self):
-        self.vk_group_session = vk_api.VkApi(token=os.getenv('GROUP_TOKEN'))
-        self.vk_user_session = vk_api.VkApi(token=os.getenv('USER_TOKEN'))
+        self.vk_group_session = vk_api.VkApi(token=GROUP_TOKEN)
+        self.vk_user_session = vk_api.VkApi(token=USER_TOKEN)
         self.vk_group = self.vk_group_session.get_api()
         self.vk_user = self.vk_user_session.get_api()
-        self.longpoll = VkBotLongPoll(self.vk_group_session, group_id=os.getenv('GROUP_ID'))
+        self.longpoll = VkBotLongPoll(self.vk_group_session, group_id=GROUP_ID)
 
     def search(self, sex, city, age, count=1000, step=-3):
         """
