@@ -8,7 +8,14 @@ from dotenv import load_dotenv
 import os
 
 # Загрузка переменных окружения из файла .env
-load_dotenv()
+dotenv_path = 'db.env'
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+login = os.getenv('login')
+password_psq = os.getenv('password_psq')
+database = os.getenv('database')
+
+DSN = f"postgresql://{login}:{password_psq}@localhost:5432/{database}"
 
 class DB:
     """
@@ -24,7 +31,7 @@ class DB:
         """
         self.Base = database.models.Base
         # Создаем движок SQLAlchemy, используя параметры из .env файла
-        self.engine = sq.create_engine(os.getenv('DSN'))
+        self.engine = sq.create_engine(DSN)
         # Создаем фабрику сессий
         self.Session = sessionmaker(bind=self.engine)
         # Создаем экземпляр сессии
