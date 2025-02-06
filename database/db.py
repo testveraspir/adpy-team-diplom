@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import os
 
 # Загрузка переменных окружения из файла .env
-dotenv_path = 'db.env'
+dotenv_path = 'config_db.env'
 if os.path.exists(dotenv_path):
     load_dotenv(dotenv_path)
 login = os.getenv('login')
