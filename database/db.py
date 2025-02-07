@@ -4,18 +4,10 @@ import sqlalchemy as sq
 from typing import List, Optional, Type
 import database.models
 from database.models import User, Status, Preferences
-from dotenv import load_dotenv
-import os
+from config import login, password_psq, name_db
 
-# Загрузка переменных окружения из файла .env
-dotenv_path = 'config_db.env'
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
-login = os.getenv('login')
-password_psq = os.getenv('password_psq')
-database = os.getenv('database')
 
-DSN = f"postgresql://{login}:{password_psq}@localhost:5432/{database}"
+DSN = f"postgresql://{login}:{password_psq}@localhost:5432/{name_db}"
 
 class DB:
     """
