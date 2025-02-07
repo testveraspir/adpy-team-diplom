@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 
 # Загрузка переменных окружения из файла .env
-dotenv_path = 'config.env'
+dotenv_path = 'config_example.env'
 if os.path.exists(dotenv_path):
     load_dotenv(dotenv_path)
 GROUP_TOKEN = os.getenv('GROUP_TOKEN')
