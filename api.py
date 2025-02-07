@@ -2,15 +2,7 @@ import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 import datetime
-from dotenv import load_dotenv
-import os
-
-dotenv_path = 'config_example.env'
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
-GROUP_TOKEN = os.getenv('GROUP_TOKEN')
-USER_TOKEN = os.getenv('USER_TOKEN')
-GROUP_ID = os.getenv('GROUP_ID')
+from config import GROUP_TOKEN, USER_TOKEN, GROUP_ID
 
 
 class VK:
